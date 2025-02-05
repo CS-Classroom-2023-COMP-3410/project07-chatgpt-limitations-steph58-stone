@@ -1,0 +1,3 @@
+1. In the html I added in the 'game-info' class, the player 2 information that would be neccesary.
+2. In the javascript file, I added a matches array and a player1turn boolean. This was to keep track of the matches each player made and the player whose turn it was. 
+3. in the check for matched card function I added logic for when the cards matched or didnt match. If they matched, I increased the number of matches for the player whose turn it was and I didn't change whose turn it would be. If they didn't match, I only changed the boolean to reflect the next persons turn.

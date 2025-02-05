@@ -1,0 +1,1 @@
+I changed the grid in the css file to be a flexbox instead of just a cssgrid. I used the flex boxes to justify and center content. I also used it to specify the desired height I wanted for the cards. I added some media queries when the screen size gets small.

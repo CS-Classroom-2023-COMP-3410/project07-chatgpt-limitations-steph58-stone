@@ -216,9 +216,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const startButton = document.getElementById("start-button");
 
   startButton.addEventListener("click", () => {
-      gameContainer.style.width = "min(80vw, 600px)"; /* Expand Game */
-      gameContainer.style.top = "calc(50% + 20px)"; /* Move Down */
-      gameGrid.style.display = "grid"; /* Show Grid */
+      gameContainer.style.width = "75vw"; /* Expand Game */
+      gameContainer.style.height = "75vh"; /* Move Down */
+      gameGrid.style.display = "flex"; /* Show Grid */
+      
       generateFruitBorder(); /* Adjust Border */
   });
 });

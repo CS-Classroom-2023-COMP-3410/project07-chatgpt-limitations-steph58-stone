@@ -7,7 +7,7 @@
 }
 
 @keyframes bounceDance {
-  0%, 100% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0); } 
   50% { transform: translateY(-10px); }
 }
 
@@ -89,34 +89,59 @@
 /* 🎮 Centered Game Container */
 .game-container {
     position: absolute;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(90vw, 600px); /* Responsive width */
     background: #fff;
-    border: 5px solid #333;
+    border: 0px solid #333;
     border-radius: 10px;
-    padding: 20px;
+    
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+ 
+}
+
+@media only screen and (max-width: 600px){
+  .game-container{
+    padding: 20px 20px;
+    width: 65vw;
+  }
+  .fruit-item{
+    font: 16px;
+  }
 }
 
 /* 🃏 Game Grid */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  height: 35%; /* Adjust height to make it shorter */
+  max-height: 800px;
+  width: 100%; /* Set a specific width, making it thinner */
+  max-width: 800px; /*Prevents it from becoming too wide*/
+  padding: 10px;
+  border: 2px solid red;
+  
 }
+
 
 /* 🔘 Buttons */
 button {
+    
+
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background: #6fa3ef;
     color: white;
+    
 }
 
 button:hover {
@@ -185,13 +210,18 @@ body {
 }
 
 .game-container {
-  width: 80%;
+  
+  width: 70%;
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: auto;
   padding: 20px;
   background: #fff;
   border: 2px solid #333;
+  align-items: center;
   border-radius: 10px;
+  justify-content: center;
 }
 
 h1 {
@@ -199,19 +229,37 @@ h1 {
 }
 
 .info {
+  display: flex;
+  align-content: space-evenly;
+  justify-content: center;
+
   margin-bottom: 20px;
+  
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+   /* Allows wrapping to new rows */
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  justify-content: center; /* Centers items horizontally */
   gap: 10px;
   margin-bottom: 20px;
+  
+  
 }
 
 .card {
+  flex: 1 1 auto; /* 4 items per row */
+  max-width: calc(25% - 10px); /* Prevents items from growing too large */
+  height: 25%; /* Adjust height dynamically */
+  aspect-ratio: 1 / 1; /* Keeps items square */
+  
   width: 100%;
-  aspect-ratio: 1 / 1;
+  
+  
   position: relative;
   perspective: 1000px;
   cursor: pointer;

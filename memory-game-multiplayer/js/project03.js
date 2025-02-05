@@ -1,6 +1,12 @@
 const gameGrid = document.getElementById("gameGrid");
-const moveCounter = document.getElementById("moveCounter");
-const timer = document.getElementById("timer");
+const matchCounter1 = document.getElementById("matchCounter1");
+const matchCounter2 = document.getElementById("matchCounter2");
+const moveCounter = document.getElementById("moves");
+const timer = document.getElementById("timer1");
+// const timer2 = document.getElementById("timer2");
+const player1 = document.getElementById("player1");
+const player2 = document.getElementById("player2");
+const playerTurn = document.getElementById("playerTurn");
 const restartBtn = document.getElementById("restartBtn");
 const startGameBtn = document.getElementById("startGameBtn");
 const gridRowsInput = document.getElementById("gridRows");
@@ -15,6 +21,8 @@ let timerInterval = null;
 let timeElapsed = 0;
 let gridRows = 4;
 let gridCols = 4;
+let matches = [0,0];
+let player1turn = true;
 
 // List of animal image filenames
 const animalImages = [
@@ -84,7 +92,7 @@ function createGrid() {
   });
 }
 
-function handleCardClick(e) {
+function handleCardClick(e) { 
   const clickedCard = e.currentTarget;
 
   if (
@@ -113,6 +121,15 @@ function checkForMatch() {
     card1.classList.add("matched");
     card2.classList.add("matched");
     flippedCards = [];
+    //ADDED IF ELSE STATEMENT
+    if (player1turn === true){
+      matches[0]++;
+      matchCounter1.textContent = matches[0];
+    } else {
+      matches[1]++;
+      matchCounter2.textContent = matches[1];
+    }
+
     
     // Check if all cards are matched
     if (document.querySelectorAll(".card.matched").length === cards.length) {
@@ -120,11 +137,20 @@ function checkForMatch() {
       alert(`Game completed in ${moves} moves and ${formatTime(timeElapsed)}!`);
     }
   } else {
+    
     setTimeout(() => {
       card1.classList.remove("flipped");
       card2.classList.remove("flipped");
       flippedCards = [];
+      if (player1turn === true){
+        player1turn = false;
+        playerTurn.textContent = 2;
+      } else {
+        player1turn = true;
+        playerTurn.textContent = 1;
+      }
     }, 1000);
+    
   }
 }
 
